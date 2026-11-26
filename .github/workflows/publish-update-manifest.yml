@@ -1,0 +1,30 @@
+name: publish-update-manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - update.xml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish update.xml as latest release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="manifest-$(date -u +%Y%m%d-%H%M%S)"
+          gh release create "$TAG" update.xml \
+            --title "Update manifest $TAG" \
+            --notes "Auto-published update manifest for BiliTaste extension." \
+            --latest
+          # keep only the 5 newest manifest releases
+          gh release list --limit 100 --json tagName,createdAt \
+            --jq 'sort_by(.createdAt) | reverse | .[5:] | .[].tagName' \
+            | while read -r old; do [ -n "$old" ] && gh release delete "$old" --yes --cleanup-tag; done
