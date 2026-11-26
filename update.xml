@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- BiliTaste self-hosted update manifest; publish on every release -->
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
   <app appid="hljoeogmcekghnppcoolkancgoelelca">
     <updatecheck codebase="https://aka.doubaocdn.com/s/VDriOUjaNR" version="3.9" prodversionmin="64.0.3242" />
