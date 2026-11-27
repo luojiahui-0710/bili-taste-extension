@@ -2,6 +2,6 @@
 <!-- BiliTaste self-hosted update manifest; publish on every release -->
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
   <app appid="hljoeogmcekghnppcoolkancgoelelca">
-    <updatecheck codebase="https://aka.doubaocdn.com/s/A3eDk8ltRJ" version="3.12" prodversionmin="64.0.3242" />
+    <updatecheck codebase="https://aka.doubaocdn.com/s/FV0162rdrU" version="3.13" prodversionmin="64.0.3242" />
   </app>
 </gupdate>
